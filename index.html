@@ -4,18 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Moksh Jadav's portfolio showcasing projects, research, technology, creativity and learning.">
-  <meta name="author" content="Moksh Jadav">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moksh Jadav | Portfolio</title>
 
   <style>
     :root {
-      --blue: #42a5ff;
-      --black: #101318;
-      --panel: #191e26;
-      --white: #f4f7fb;
+      --background: #101318;
+      --surface: #191e26;
+      --text: #f4f7fb;
       --muted: #a8b2c1;
+      --blue: #42a5ff;
       --border: #2b323d;
     }
 
@@ -23,188 +20,227 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
     body {
-      background: var(--black);
-      color: var(--white);
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 18px 8%;
       background: rgba(16, 19, 24, 0.96);
       border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-size: 1.15rem;
-      font-weight: bold;
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    .logo span,
-    .blue {
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span {
       color: var(--blue);
     }
 
-    nav {
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 20px;
     }
 
-    nav a {
+    .nav-links a {
       color: var(--muted);
-      font-size: 0.9rem;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
     }
 
-    nav a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--blue);
     }
 
-    section {
-      padding: 80px 8%;
-      scroll-margin-top: 70px;
+    .container {
+      width: min(1050px, 90%);
+      margin: auto;
     }
 
     .hero {
-      min-height: 80vh;
+      min-height: 75vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      background: linear-gradient(135deg, #101318, #17283b);
+      padding: 90px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
     }
 
     .eyebrow {
       color: var(--blue);
-      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
       letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 16px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 7vw, 5rem);
-      line-height: 1.1;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.12;
+      margin: 20px 0;
     }
 
-    .hero p {
-      max-width: 600px;
+    h1 span {
+      color: var(--blue);
+    }
+
+    .hero p,
+    .intro {
       color: var(--muted);
-      margin: 22px 0;
+      max-width: 680px;
+      font-size: 17px;
     }
 
     .button {
       display: inline-block;
-      padding: 11px 20px;
-      border-radius: 6px;
+      margin-top: 25px;
+      padding: 12px 22px;
       background: var(--blue);
-      color: var(--black);
+      color: #101318;
+      text-decoration: none;
       font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #80c4ff;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 85px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .section-title {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 34px;
+      margin-bottom: 12px;
     }
 
-    .section-intro {
-      color: var(--muted);
-      max-width: 650px;
-      margin-bottom: 28px;
+    .section-title span {
+      color: var(--blue);
+    }
+
+    .intro {
+      margin-bottom: 35px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .card {
-      padding: 24px;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--panel);
+      padding: 26px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .tag {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .card h3 {
-      color: var(--blue);
-      margin-bottom: 10px;
+      font-size: 21px;
+      margin: 12px 0;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
+      font-size: 15px;
     }
 
-    .card a {
-      color: var(--blue);
-      font-size: 0.9rem;
-    }
-
-    .tag {
+    .card-link {
       display: inline-block;
+      margin-top: 18px;
       color: var(--blue);
-      border: 1px solid #31577c;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 0.75rem;
-      margin-bottom: 12px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .about-content {
-      max-width: 720px;
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .about-text {
+      max-width: 800px;
       color: var(--muted);
+      font-size: 16px;
     }
 
-    .about-content p {
-      margin-bottom: 15px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 700px;
     }
 
     footer {
+      padding: 25px;
       text-align: center;
-      padding: 24px;
       color: var(--muted);
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
+      font-size: 14px;
     }
 
-    @media (max-width: 650px) {
-      header {
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
         flex-direction: column;
       }
 
-      nav {
-        justify-content: center;
-        gap: 14px;
+      .nav-links {
+        gap: 12px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
       }
 
       section {
-        padding: 60px 6%;
+        padding: 60px 0;
       }
     }
   </style>
@@ -212,68 +248,64 @@
 
 <body>
 
-  <header>
+<header>
+  <nav>
     <a href="#home" class="logo">MOKSH<span>.</span></a>
 
-    <nav>
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#learnings">Learnings</a>
+      <a href="#research">Research</a>
       <a href="#about">About</a>
       <a href="#connect">Connect</a>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
+<main>
 
-    <!-- HOME -->
-    <section class="hero" id="home">
-      <div class="eyebrow">Maker • Learner • Creator</div>
-
-      <h1>
-        Building Ideas.<br>
-        <span class="blue">Creating the Future.</span>
-      </h1>
-
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <span class="eyebrow">Student · Maker · Curious Learner</span>
+      <h1>Building Ideas.<br><span>Creating Possibilities.</span></h1>
       <p>
-        I’m Moksh Jadav, a student interested in technology,
-        design, research, and turning ideas into useful projects.
+        I enjoy exploring technology, experimenting with ideas,
+        researching new topics, and creating practical projects.
+        My journey is driven by curiosity, creativity, and a desire
+        to understand how things work.
       </p>
-
       <a href="#projects" class="button">Explore My Work</a>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Projects & Work</h2>
-      <p class="section-intro">
-        A selection of projects and work I have explored.
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <p class="intro">
+        A collection of ideas, experiments, and projects that
+        represent my interest in technology and making.
       </p>
 
       <div class="cards">
-
         <article class="card">
           <span class="tag">Project</span>
           <h3>LifeLink</h3>
           <p>
-            A project focused on developing an idea into a
-            practical solution.
+            A project focused on exploring an idea and presenting
+            its purpose, concept, and potential impact.
           </p>
-          <a href="https://docs.google.com/presentation/d/1d3E9vRexnqC0U6Cab4jA30jhnONKgcmfNV0SYS42bII/edit?usp=drive_link"
-             target="_blank" rel="noopener">
-            View Project →
-          </a>
         </article>
 
         <article class="card">
           <span class="tag">Electronics</span>
           <h3>Arduino Projects</h3>
           <p>
-            Hands-on electronics projects involving sensors,
-            electronic circuits, input and output devices,
-            and microcontrollers. These experiments develop
-            practical understanding of how hardware and code
-            work together to perform tasks.
+            Hands-on experiments with Arduino, sensors, LEDs,
+            and electronic components to understand how
+            hardware and programming work together.
           </p>
         </article>
 
@@ -281,147 +313,230 @@
           <span class="tag">Research</span>
           <h3>Research & Presentations</h3>
           <p>
-            Exploring influential individuals, innovative
-            inventions, scientific materials, and ideas.
-            Research develops the ability to investigate
-            subjects, understand their significance, and
-            communicate information clearly.
+            Exploring different subjects, organising information,
+            and communicating ideas through research-based work.
           </p>
-          <a href="https://docs.google.com/presentation/d/1LAL8rBDpGz3us9XmKcF13A3nv9nw3MMYJ34H-jF8TQg/edit?usp=drive_link"
-             target="_blank" rel="noopener">
-            Explore Research →
-          </a>
         </article>
-
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- LEARNINGS -->
-    <section id="learnings">
-      <h2 class="section-title">Learnings</h2>
-      <p class="section-intro">
-        Exploring inspiring individuals, breakthrough ideas,
-        and innovations that expand the way I understand
-        technology, science, and the world.
+  <!-- LEARNINGS -->
+  <section id="learnings">
+    <div class="container">
+      <h2 class="section-title">My <span>Learnings</span></h2>
+      <p class="intro">
+        Exploring ideas, innovations, and discoveries across
+        technology, science, the environment, and creativity.
       </p>
 
       <div class="cards">
 
-    
-<!-- LEARNINGS -->
-<section id="learnings">
-  <h2 class="section-title">Learnings</h2>
+        <article class="card">
+          <span class="tag">Artificial Intelligence</span>
+          <h3>Machine Learning & Deep Learning</h3>
+          <p>
+            Exploring how computers learn from data, identify
+            patterns, and make intelligent predictions. Understanding
+            neural networks, computer vision, logical thinking,
+            experimentation, and technological innovation.
+          </p>
+        </article>
 
-  <p class="section-intro">
-    Exploring ideas, innovations, and inspiring contributions
-    across technology, science, the environment, and creativity.
-    Each topic offers a different perspective on understanding
-    problems and discovering new possibilities.
-  </p>
+        <article class="card">
+          <span class="tag">Environment & Sustainability</span>
+          <h3>Environmental Responsibility</h3>
+          <p>
+            Understanding nature protection, environmental
+            conservation, biodiversity, tree plantation,
+            patience, dedication, and the importance of
+            creating a lasting positive impact.
+          </p>
+        </article>
 
-  <div class="cards">
+        <article class="card">
+          <span class="tag">Innovation & Entrepreneurship</span>
+          <h3>The Maker Movement</h3>
+          <p>
+            Exploring creativity, accessible technology,
+            hands-on experimentation, prototyping, learning
+            through failure, knowledge sharing, and
+            entrepreneurial thinking.
+          </p>
+        </article>
 
-    <article class="card">
-      <span class="tag">Artificial Intelligence</span>
-      <h3>Machine Learning & Deep Learning</h3>
-      <p>
-        Exploring how computers can learn from data, identify
-        patterns, and make intelligent predictions. Understanding
-        neural networks, computer vision, and the role of deep
-        learning in developing systems that can recognise,
-        analyse, and interpret information. This area highlights
-        the importance of logical thinking, experimentation,
-        and continuous technological innovation.
-      </p>
-    </article>
+        <article class="card">
+          <span class="tag">Advanced Materials</span>
+          <h3>Aerogel</h3>
+          <p>
+            Studying an extremely lightweight and porous material
+            known for its thermal insulation properties and
+            potential applications in aerospace, construction,
+            scientific research, and engineering.
+          </p>
+        </article>
 
-    <article class="card">
-      <span class="tag">Environment & Sustainability</span>
-      <h3>Environmental Responsibility</h3>
-      <p>
-        Understanding the importance of protecting nature through
-        consistent action and long-term commitment. Exploring
-        tree plantation, environmental conservation, biodiversity,
-        and the impact of individual contributions on the
-        environment. This topic highlights patience, dedication,
-        social responsibility, and the value of creating a
-        positive impact that lasts for generations.
-      </p>
-    </article>
-
-    <article class="card">
-      <span class="tag">Innovation & Entrepreneurship</span>
-      <h3>The Maker Movement</h3>
-      <p>
-        Exploring how creativity, accessible technology, and
-        hands-on experimentation can turn ideas into practical
-        solutions. Understanding the importance of prototyping,
-        sharing knowledge, learning through failure, and
-        developing an entrepreneurial mindset. It demonstrates
-        how curiosity and collaboration can encourage innovation
-        and make technology more accessible.
-      </p>
-    </article>
-
-
-    
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <h2 class="section-title">My <span>Research</span></h2>
+      <p class="intro">
+        Researching practical topics and exploring ideas that
+        help develop knowledge and a deeper understanding
+        of everyday life.
+      </p>
 
-      <div class="about-content">
+      <div class="cards">
+
+        <article class="card">
+          <span class="tag">Research Paper 01</span>
+          <h3>Time Management</h3>
+          <p>
+            Exploring how planning, prioritising tasks, and
+            organising time can improve productivity and help
+            balance different responsibilities.
+          </p>
+          <a class="card-link"
+             href="https://docs.google.com/document/d/1892lruqE4pWER5NuEc0rSFKk2Bng9AQiclZRpqKGO-4/edit?usp=drive_link"
+             target="_blank" rel="noopener noreferrer">
+            Read Research Paper →
+          </a>
+        </article>
+
+        <article class="card">
+          <span class="tag">Research Paper 02</span>
+          <h3>Sleep</h3>
+          <p>
+            Understanding the importance of healthy sleep habits
+            and their connection with rest, memory, concentration,
+            recovery, and everyday well-being.
+          </p>
+          <a class="card-link"
+             href="https://docs.google.com/document/d/1rkSi1IAus7jF6PuBvSvYj-RfKxABkdP1j_CzRs5BSic/edit?usp=drive_link"
+             target="_blank" rel="noopener noreferrer">
+            Read Research Paper →
+          </a>
+        </article>
+
+        <article class="card">
+          <span class="tag">Research Paper 03</span>
+          <h3>Gut Health</h3>
+          <p>
+            Exploring the digestive system, gut microbiome,
+            beneficial microorganisms, nutrition, and the
+            relationship between gut health and overall well-being.
+          </p>
+          <a class="card-link"
+             href="https://docs.google.com/document/d/1i2KcRCWO8CZSRjl6H22auKxZKMcz9eV22b6eQFqMH98/edit?usp=drive_link"
+             target="_blank" rel="noopener noreferrer">
+            Read Research Paper →
+          </a>
+        </article>
+
+        <article class="card">
+          <span class="tag">Research Paper 04</span>
+          <h3>Habit Stacking</h3>
+          <p>
+            Exploring how connecting a new habit to an existing
+            routine can make positive habits easier to remember
+            and maintain. Understanding the importance of small
+            actions, consistency, and practical ways to build
+            better daily routines.
+          </p>
+          <a class="card-link"
+             href="https://docs.google.com/document/d/113WMaE2Iqize1bub22maqNyEOEyMGeENu5_SZt86BmI/edit?usp=drive_link"
+             target="_blank" rel="noopener noreferrer">
+            Read Research Paper →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About <span>Me</span></h2>
+
+      <div class="about-text">
         <p>
-          I’m a student who enjoys learning by exploring,
-          experimenting, and creating.
+          I enjoy learning by exploring, experimenting,
+          researching, and creating. My interests include
+          electronics, CAD, technology, research, and
+          creative problem-solving.
         </p>
-
+        <br>
         <p>
-          I’m interested in electronics, CAD, technology,
-          research, and creative problem-solving.
+          Through Zero to Maker, I take part in hands-on
+          making and creative projects that help me develop
+          practical skills and learn through experimentation.
         </p>
-
-        <p>
-          Through Zero to Maker, I explore hands-on making
-          and creative projects, developing practical skills
-          and understanding how ideas can become real
-          solutions.
-        </p>
-
+        <br>
         <p>
           Outside of making, I enjoy volleyball, cricket,
           and sometimes football. I also take part in yoga
-          and bilateral activities. These activities allow
-          me to explore teamwork, coordination, balance,
-          discipline, and different ways of staying active.
+          and bilateral activities. These activities help me
+          explore teamwork, coordination, balance, and discipline.
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONNECT -->
-    <section id="connect">
-      <h2 class="section-title">Connect</h2>
+  <!-- CONNECT -->
+  <section id="connect">
+    <div class="container">
+      <h2 class="section-title">Let's <span>Connect</span></h2>
 
-      <p class="section-intro">
-        Explore my work and projects.
-      </p>
-
-      <div class="contact-links">
+      <div class="contact-card">
+        <h3>Explore My Other Portfolio</h3>
+        <p class="intro">
+          Visit my other portfolio website to discover
+          more about my work, interests, and maker journey.
+        </p>
         <a class="button"
            href="https://moksh-maker-flow.base44.app"
-           target="_blank" rel="noopener">
-          My Other Portfolio
+           target="_blank" rel="noopener noreferrer">
+          Visit My Portfolio →
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+</main>
 
-  <footer>
-    © 2026 Moksh Jadav • Maker Portfolio
-  </footer>
+<footer>
+  <p>© <span id="year"></span> Moksh Jadav. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  const sections = document.querySelectorAll("main section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  window.addEventListener("scroll", () => {
+    let current = "home";
+
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 150) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === "#" + current
+      );
+    });
+  });
+</script>
 
 </body>
 </html>
